@@ -22,12 +22,17 @@
   <meta name="twitter:image" content="https://bartenders-box-web.vercel.app/og.png" />
   <meta name="theme-color" content="#3A1B2E" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Load fonts without blocking render; text paints immediately in fallback, swaps when ready -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <!-- Self-hosted fonts (same-origin) — preload the two above-the-fold faces, swap on the rest -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-normal-400_900.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-normal-400.woff2" crossorigin />
+  <style>
+    @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 700;font-display:swap;src:url('/fonts/fraunces-italic-400_700.woff2') format('woff2');}
+    @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/fraunces-normal-400_900.woff2') format('woff2');}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/inter-normal-400.woff2') format('woff2');}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/inter-normal-500.woff2') format('woff2');}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/inter-normal-600.woff2') format('woff2');}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/inter-normal-700.woff2') format('woff2');}
+  </style>
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%B8%3C/text%3E%3C/svg%3E" />
 
@@ -61,7 +66,7 @@
 
     <div class="max-w-6xl mx-auto px-6 pt-32 pb-16 sm:pt-40 sm:pb-24 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
       <!-- copy -->
-      <div class="animate-fadeup">
+      <div>
         <h1 class="font-serif text-[2.5rem] leading-[1.02] sm:text-6xl lg:text-7xl font-black text-balance text-plum">
           Your Favorite Bar,
           <span class="text-ember italic">Delivered.</span>
@@ -79,7 +84,7 @@
             See What's Inside
           </a>
         </div>
-        <p class="mt-3 text-sm font-medium text-plum/60">Skip or cancel anytime.</p>
+        <p class="mt-3 text-sm font-medium text-plum/70">Skip or cancel anytime.</p>
 
         <!-- Social proof micro-strip -->
         <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-plum/70">
@@ -122,7 +127,9 @@
             <!-- ===== Open box ===== -->
             <!-- open lid (back) -->
             <path d="M120 150 L300 150 L330 96 L150 96 Z" fill="url(#boxLid)" stroke="#2c1322" stroke-width="3"/>
-            <text x="240" y="126" font-family="Fraunces, Georgia, serif" font-size="20" fill="#E08D3C" text-anchor="middle" font-style="italic" font-weight="700">Bartender's Box</text>
+            <!-- decorative monogram on the lid (kept lightweight: no text node) -->
+            <circle cx="240" cy="120" r="15" fill="none" stroke="#E08D3C" stroke-width="2.5"/>
+            <path d="M233 113 v14 M233 113 h7 a3.5 3.5 0 0 1 0 7 h-7 M233 120 h7 a3.5 3.5 0 0 1 0 7 h-7" fill="none" stroke="#E08D3C" stroke-width="2.5"/>
             <!-- box body -->
             <rect x="120" y="150" width="180" height="150" rx="8" fill="url(#boxBody)" stroke="#2c1322" stroke-width="3"/>
             <!-- inner flap -->
@@ -189,7 +196,7 @@
           <blockquote class="mt-3 flex-1 text-plum/80 text-balance">"I've tried making cocktails before and always messed something up. This box makes it foolproof and the results are genuinely impressive."</blockquote>
           <figcaption class="mt-5 flex items-center gap-3">
             <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ember/15 font-serif font-bold text-ember">S</span>
-            <span class="text-sm font-semibold text-plum">Sarah M.<span class="block font-normal text-plum/50">Austin, TX</span></span>
+            <span class="text-sm font-semibold text-plum">Sarah M.<span class="block font-normal text-plum/70">Austin, TX</span></span>
           </figcaption>
         </figure>
         <figure class="flex flex-col rounded-3xl bg-cream p-7 shadow-sm ring-1 ring-plum/5">
@@ -197,7 +204,7 @@
           <blockquote class="mt-3 flex-1 text-plum/80 text-balance">"My Friday nights are completely different now. We do cocktail hour at home and it's actually better than going out."</blockquote>
           <figcaption class="mt-5 flex items-center gap-3">
             <span class="flex h-10 w-10 items-center justify-center rounded-full bg-olive/20 font-serif font-bold text-olive">J</span>
-            <span class="text-sm font-semibold text-plum">James T.<span class="block font-normal text-plum/50">Chicago, IL</span></span>
+            <span class="text-sm font-semibold text-plum">James T.<span class="block font-normal text-plum/70">Chicago, IL</span></span>
           </figcaption>
         </figure>
         <figure class="flex flex-col rounded-3xl bg-cream p-7 shadow-sm ring-1 ring-plum/5">
@@ -205,7 +212,7 @@
           <blockquote class="mt-3 flex-1 text-plum/80 text-balance">"Got it as a gift, resubscribed myself immediately. The recipe cards alone are worth it."</blockquote>
           <figcaption class="mt-5 flex items-center gap-3">
             <span class="flex h-10 w-10 items-center justify-center rounded-full bg-amber/20 font-serif font-bold text-amber">P</span>
-            <span class="text-sm font-semibold text-plum">Priya K.<span class="block font-normal text-plum/50">New York, NY</span></span>
+            <span class="text-sm font-semibold text-plum">Priya K.<span class="block font-normal text-plum/70">New York, NY</span></span>
           </figcaption>
         </figure>
       </div>
@@ -276,24 +283,24 @@
   <section class="max-w-6xl mx-auto px-6 py-20 sm:py-24" aria-labelledby="how-h">
     <div class="text-center max-w-2xl mx-auto">
       <h2 id="how-h" class="font-serif text-3xl sm:text-5xl font-bold text-plum">How it works</h2>
-      <p class="mt-4 text-lg text-plum/60">Three steps from doorstep to the perfect pour.</p>
+      <p class="mt-4 text-lg text-plum/70">Three steps from doorstep to the perfect pour.</p>
     </div>
 
     <div class="mt-14 grid sm:grid-cols-3 gap-8">
       <div class="relative rounded-3xl bg-white p-8 shadow-sm ring-1 ring-plum/5">
         <span class="font-serif text-5xl font-black text-amber/30">1</span>
         <h3 class="mt-2 font-serif text-2xl font-semibold text-plum">Pick your plan</h3>
-        <p class="mt-3 text-plum/60">Choose your cadence and checkout in under a minute.</p>
+        <p class="mt-3 text-plum/70">Choose your cadence and checkout in under a minute.</p>
       </div>
       <div class="relative rounded-3xl bg-white p-8 shadow-sm ring-1 ring-plum/5">
         <span class="font-serif text-5xl font-black text-ember/30">2</span>
         <h3 class="mt-2 font-serif text-2xl font-semibold text-plum">Your box arrives</h3>
-        <p class="mt-3 text-plum/60">Everything pre-measured, beautifully packed, at your door.</p>
+        <p class="mt-3 text-plum/70">Everything pre-measured, beautifully packed, at your door.</p>
       </div>
       <div class="relative rounded-3xl bg-white p-8 shadow-sm ring-1 ring-plum/5">
         <span class="font-serif text-5xl font-black text-olive/40">3</span>
         <h3 class="mt-2 font-serif text-2xl font-semibold text-plum">Mix &amp; enjoy</h3>
-        <p class="mt-3 text-plum/60">Follow the card, pour, and impress. That's it.</p>
+        <p class="mt-3 text-plum/70">Follow the card, pour, and impress. That's it.</p>
       </div>
     </div>
 
@@ -328,7 +335,7 @@
   <section id="pricing" class="max-w-6xl mx-auto px-6 py-20 sm:py-24 scroll-mt-20" aria-labelledby="pricing-h">
     <div class="text-center max-w-2xl mx-auto">
       <h2 id="pricing-h" class="font-serif text-3xl sm:text-5xl font-bold text-plum">Pick your cadence</h2>
-      <p class="mt-4 text-lg text-plum/60">Skip any month, swap, or cancel anytime. No commitment.</p>
+      <p class="mt-4 text-lg text-plum/70">Skip any month, swap, or cancel anytime. No commitment.</p>
     </div>
 
     <div class="mt-12 grid gap-6 md:grid-cols-3 items-stretch">
@@ -336,8 +343,8 @@
       <label class="group relative flex flex-col rounded-3xl bg-white p-7 shadow-sm ring-1 ring-plum/10 cursor-pointer transition hover:-translate-y-1 hover:shadow-xl has-[:checked]:ring-2 has-[:checked]:ring-ember">
         <input type="radio" name="plan" value="monthly" class="sr-only peer" />
         <span class="font-serif text-2xl font-semibold text-plum">Monthly</span>
-        <span class="mt-1 text-sm text-plum/55">A new box every month</span>
-        <span class="mt-5 font-serif text-4xl font-black text-plum">$49<span class="text-base font-medium text-plum/50">/box</span></span>
+        <span class="mt-1 text-sm text-plum/70">A new box every month</span>
+        <span class="mt-5 font-serif text-4xl font-black text-plum">$49<span class="text-base font-medium text-plum/70">/box</span></span>
         <ul class="mt-5 space-y-2 text-sm text-plum/70">
           <li class="flex gap-2"><span class="text-ember" aria-hidden="true">✓</span> 5–7 cocktails each box</li>
           <li class="flex gap-2"><span class="text-ember" aria-hidden="true">✓</span> Free shipping</li>
@@ -365,8 +372,8 @@
       <label class="group relative flex flex-col rounded-3xl bg-white p-7 shadow-sm ring-1 ring-plum/10 cursor-pointer transition hover:-translate-y-1 hover:shadow-xl has-[:checked]:ring-2 has-[:checked]:ring-ember">
         <input type="radio" name="plan" value="gift" class="sr-only peer" />
         <span class="font-serif text-2xl font-semibold text-plum">3-Month Gift</span>
-        <span class="mt-1 text-sm text-plum/55">Prepaid, no auto-renew</span>
-        <span class="mt-5 font-serif text-4xl font-black text-plum">$135<span class="text-base font-medium text-plum/50">total</span></span>
+        <span class="mt-1 text-sm text-plum/70">Prepaid, no auto-renew</span>
+        <span class="mt-5 font-serif text-4xl font-black text-plum">$135<span class="text-base font-medium text-plum/70">total</span></span>
         <ul class="mt-5 space-y-2 text-sm text-plum/70">
           <li class="flex gap-2"><span class="text-ember" aria-hidden="true">✓</span> Three monthly boxes</li>
           <li class="flex gap-2"><span class="text-ember" aria-hidden="true">✓</span> Gift note included</li>
@@ -387,7 +394,7 @@
         </button>
       </div>
       <p id="signup-success" class="hidden mt-3 text-center text-sm font-medium text-olive">🎉 You're in! Check your inbox to confirm your <span id="plan-label">plan</span> and complete checkout.</p>
-      <p class="mt-3 text-center text-sm text-plum/55">Skip or cancel anytime · Free shipping · Ships to the lower 48</p>
+      <p class="mt-3 text-center text-sm text-plum/70">Skip or cancel anytime · Free shipping · Ships to the lower 48</p>
     </form>
   </section>
 
@@ -457,7 +464,7 @@
           <div class="flex items-center gap-2 font-serif text-lg font-semibold text-plum">
             <span aria-hidden="true">🍸</span> Bartender's Box
           </div>
-          <p class="mt-3 text-sm text-plum/55">Your favorite bar, delivered monthly. Craft cocktails made simple — no bartender required.</p>
+          <p class="mt-3 text-sm text-plum/70">Your favorite bar, delivered monthly. Craft cocktails made simple — no bartender required.</p>
         </div>
         <nav class="grid grid-cols-2 gap-x-12 gap-y-2 text-sm" aria-label="Footer">
           <a href="#whats-inside" class="inline-flex min-h-[48px] items-center text-plum/70 hover:text-ember transition">What's inside</a>
@@ -468,7 +475,7 @@
           <a href="#" class="inline-flex min-h-[48px] items-center text-plum/70 hover:text-ember transition">Contact</a>
         </nav>
       </div>
-      <div class="mt-10 flex flex-col gap-4 border-t border-plum/10 pt-6 sm:flex-row sm:items-center sm:justify-between text-sm text-plum/50">
+      <div class="mt-10 flex flex-col gap-4 border-t border-plum/10 pt-6 sm:flex-row sm:items-center sm:justify-between text-sm text-plum/70">
         <p>© 2026 Bartender's Box. Please sip responsibly. 21+.</p>
         <div class="flex flex-wrap gap-x-5 gap-y-2">
           <a href="#" class="hover:text-ember transition">Terms</a>

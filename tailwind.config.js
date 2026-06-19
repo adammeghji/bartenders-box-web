@@ -9,7 +9,7 @@ module.exports = {
       },
       colors: {
         cream: '#FBF3E7',
-        ember: '#C04A2B',
+        ember: '#B23E22',
         amber: '#E08D3C',
         plum: '#3A1B2E',
         olive: '#6B7B4A',

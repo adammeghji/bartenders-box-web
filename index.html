@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bartender's Box — Craft Cocktails, Delivered Monthly</title>
+  <meta name="description" content="Bartender's Box is a craft cocktail subscription. Every month we ship spirits, mixers, garnishes, and recipe cards to make bar-quality cocktails at home — no bartender required." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bartender's Box — Bring the Bar Home" />
+  <meta property="og:description" content="A monthly box of spirits, mixers, garnishes, and recipe cards for bar-quality cocktails at home." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%B8%3C/text%3E%3C/svg%3E" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FBF3E7',
+            ember: '#C04A2B',
+            amber: '#E08D3C',
+            plum: '#3A1B2E',
+            olive: '#6B7B4A',
+          },
+          keyframes: {
+            floaty: {
+              '0%, 100%': { transform: 'translateY(0) rotate(-2deg)' },
+              '50%': { transform: 'translateY(-14px) rotate(2deg)' },
+            },
+            fadeup: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            floaty: 'floaty 6s ease-in-out infinite',
+            fadeup: 'fadeup 0.8s ease-out both',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .text-balance { text-wrap: balance; }
+    .grain {
+      background-image: radial-gradient(rgba(58,27,46,0.04) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-plum font-sans antialiased grain">
+
+  <!-- ===== Nav ===== -->
+  <header class="absolute top-0 inset-x-0 z-20">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-6">
+      <a href="#" class="flex items-center gap-2 font-serif text-xl font-semibold text-plum">
+        <span class="text-2xl">🍸</span>
+        Bartender's Box
+      </a>
+      <a href="#waitlist" class="hidden sm:inline-flex items-center rounded-full bg-plum px-5 py-2.5 text-sm font-semibold text-cream transition hover:bg-ember">
+        Get Early Access
+      </a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="relative overflow-hidden">
+    <!-- warm gradient wash -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-cream via-cream to-amber/20"></div>
+    <div class="absolute -top-24 -right-24 -z-10 h-96 w-96 rounded-full bg-amber/30 blur-3xl"></div>
+    <div class="absolute top-40 -left-24 -z-10 h-80 w-80 rounded-full bg-ember/20 blur-3xl"></div>
+
+    <div class="max-w-6xl mx-auto px-6 pt-36 pb-24 sm:pt-44 grid lg:grid-cols-2 gap-12 items-center">
+      <!-- copy -->
+      <div class="animate-fadeup">
+        <span class="inline-flex items-center gap-2 rounded-full border border-ember/30 bg-white/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-ember">
+          ✦ New monthly subscription
+        </span>
+        <h1 class="mt-6 font-serif text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] text-balance text-plum">
+          Bring the bar
+          <span class="text-ember italic">home.</span>
+        </h1>
+        <p class="mt-6 max-w-md text-lg text-plum/70 text-balance">
+          Every month, Bartender's Box ships hand-picked spirits, mixers, garnishes, and recipe cards — everything you need to shake up bar-quality cocktails. No bartender required.
+        </p>
+
+        <!-- CTA / email capture -->
+        <form id="waitlist" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-md" onsubmit="event.preventDefault(); document.getElementById('cta-success').classList.remove('hidden'); this.querySelector('button').textContent='You\'re on the list! 🎉';">
+          <label for="email" class="sr-only">Email address</label>
+          <input
+            id="email" name="email" type="email" required placeholder="you@example.com"
+            class="flex-1 rounded-full border border-plum/15 bg-white px-5 py-3.5 text-plum placeholder-plum/40 shadow-sm outline-none transition focus:border-ember focus:ring-2 focus:ring-ember/30"
+          />
+          <button type="submit" class="rounded-full bg-ember px-7 py-3.5 font-semibold text-cream shadow-lg shadow-ember/30 transition hover:bg-plum hover:scale-[1.02] active:scale-95">
+            Join the Waitlist
+          </button>
+        </form>
+        <p id="cta-success" class="hidden mt-3 text-sm font-medium text-olive">Thanks — we'll be in touch when your first box is ready to ship.</p>
+        <p class="mt-4 text-sm text-plum/50">Free shipping · Cancel anytime · Ships to the lower 48</p>
+      </div>
+
+      <!-- illustrated cocktail -->
+      <div class="relative flex justify-center lg:justify-end">
+        <div class="animate-floaty">
+          <svg viewBox="0 0 320 360" class="w-72 sm:w-80 drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a craft cocktail">
+            <defs>
+              <linearGradient id="drink" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#E08D3C"/>
+                <stop offset="55%" stop-color="#C04A2B"/>
+                <stop offset="100%" stop-color="#9B2D1F"/>
+              </linearGradient>
+              <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0.15"/>
+              </linearGradient>
+            </defs>
+            <!-- coupe bowl -->
+            <path d="M70 70 H250 C250 150 200 185 160 185 C120 185 70 150 70 70 Z" fill="url(#glass)" stroke="#3A1B2E" stroke-width="4"/>
+            <!-- liquid -->
+            <path d="M84 78 H236 C233 142 192 172 160 172 C128 172 87 142 84 78 Z" fill="url(#drink)"/>
+            <!-- surface ellipse -->
+            <ellipse cx="160" cy="78" rx="76" ry="11" fill="#F2B05A"/>
+            <!-- orange peel garnish -->
+            <path d="M196 60 q22 -6 30 14 q-26 4 -30 -14 Z" fill="#E08D3C" stroke="#9B2D1F" stroke-width="2"/>
+            <!-- cocktail pick + cherry -->
+            <line x1="130" y1="36" x2="150" y2="86" stroke="#3A1B2E" stroke-width="3"/>
+            <circle cx="128" cy="34" r="11" fill="#C0203A" stroke="#3A1B2E" stroke-width="2"/>
+            <!-- stem -->
+            <rect x="155" y="185" width="10" height="110" rx="4" fill="#3A1B2E"/>
+            <!-- base -->
+            <path d="M110 320 Q160 300 210 320 Q210 332 160 332 Q110 332 110 320 Z" fill="#3A1B2E"/>
+            <ellipse cx="160" cy="320" rx="50" ry="9" fill="#3A1B2E"/>
+            <!-- bubbles -->
+            <circle cx="140" cy="120" r="4" fill="#ffffff" opacity="0.5"/>
+            <circle cx="175" cy="140" r="3" fill="#ffffff" opacity="0.5"/>
+            <circle cx="160" cy="110" r="2.5" fill="#ffffff" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Trust bar ===== -->
+  <section class="border-y border-plum/10 bg-white/40">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm font-medium text-plum/60">
+      <span>★★★★★ Loved by 2,000+ home mixologists</span>
+      <span class="hidden sm:inline">·</span>
+      <span>Featured in <span class="font-serif italic text-plum">Tipple</span> &amp; <span class="font-serif italic text-plum">The Pour</span></span>
+      <span class="hidden sm:inline">·</span>
+      <span>5–7 cocktails every month</span>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section class="max-w-6xl mx-auto px-6 py-24">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="font-serif text-4xl sm:text-5xl font-bold text-plum">How it works</h2>
+      <p class="mt-4 text-lg text-plum/60">Three steps from doorstep to the perfect pour.</p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-3 gap-8">
+      <div class="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-plum/5 transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber/20 text-3xl">📦</div>
+        <h3 class="mt-5 font-serif text-2xl font-semibold text-plum">It arrives</h3>
+        <p class="mt-3 text-plum/60">A beautifully designed box lands at your door with everything pre-measured and ready to mix.</p>
+      </div>
+      <div class="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-plum/5 transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-ember/20 text-3xl">🍹</div>
+        <h3 class="mt-5 font-serif text-2xl font-semibold text-plum">You mix</h3>
+        <p class="mt-3 text-plum/60">Follow the illustrated recipe cards. Each step is bartender-tested and foolproof — even for first-timers.</p>
+      </div>
+      <div class="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-plum/5 transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-olive/20 text-3xl">🥂</div>
+        <h3 class="mt-5 font-serif text-2xl font-semibold text-plum">You sip</h3>
+        <p class="mt-3 text-plum/60">Pour, garnish, and impress. Bar-quality cocktails at home, for a fraction of the price.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Inside the box ===== -->
+  <section class="bg-plum text-cream">
+    <div class="max-w-6xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold">What's inside every box</h2>
+        <p class="mt-4 text-cream/70 text-lg">Curated by working bartenders. Designed to make you look like one.</p>
+        <ul class="mt-8 space-y-4">
+          <li class="flex items-start gap-3"><span class="text-amber text-xl">✦</span><span><strong class="font-semibold">Premium spirits &amp; mixers</strong> — pre-portioned so nothing goes to waste.</span></li>
+          <li class="flex items-start gap-3"><span class="text-amber text-xl">✦</span><span><strong class="font-semibold">Fresh garnishes</strong> — peels, bitters, and finishing touches that make the drink.</span></li>
+          <li class="flex items-start gap-3"><span class="text-amber text-xl">✦</span><span><strong class="font-semibold">Illustrated recipe cards</strong> — keepsake-quality, step-by-step, foolproof.</span></li>
+          <li class="flex items-start gap-3"><span class="text-amber text-xl">✦</span><span><strong class="font-semibold">A new theme monthly</strong> — from Negroni nights to tiki escapes.</span></li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-cream/10 p-6 text-center ring-1 ring-cream/10">
+          <div class="font-serif text-4xl font-black text-amber">5–7</div>
+          <div class="mt-1 text-sm text-cream/60">cocktails per box</div>
+        </div>
+        <div class="rounded-2xl bg-cream/10 p-6 text-center ring-1 ring-cream/10">
+          <div class="font-serif text-4xl font-black text-amber">$49</div>
+          <div class="mt-1 text-sm text-cream/60">per month</div>
+        </div>
+        <div class="rounded-2xl bg-cream/10 p-6 text-center ring-1 ring-cream/10">
+          <div class="font-serif text-4xl font-black text-amber">100%</div>
+          <div class="mt-1 text-sm text-cream/60">bartender-tested</div>
+        </div>
+        <div class="rounded-2xl bg-cream/10 p-6 text-center ring-1 ring-cream/10">
+          <div class="font-serif text-4xl font-black text-amber">∞</div>
+          <div class="mt-1 text-sm text-cream/60">cancel anytime</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-amber/30 via-cream to-ember/20"></div>
+    <div class="max-w-3xl mx-auto px-6 py-24 text-center">
+      <h2 class="font-serif text-4xl sm:text-6xl font-black text-plum text-balance">Your first round is on the way.</h2>
+      <p class="mt-5 text-lg text-plum/70 text-balance">Join the waitlist today and be first in line when boxes start shipping. Early members get an exclusive welcome cocktail kit.</p>
+      <a href="#waitlist" class="mt-8 inline-flex items-center justify-center rounded-full bg-plum px-9 py-4 text-lg font-semibold text-cream shadow-xl shadow-plum/30 transition hover:bg-ember hover:scale-[1.03] active:scale-95">
+        Get Early Access →
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="border-t border-plum/10 bg-cream">
+    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-plum/50">
+      <div class="flex items-center gap-2 font-serif text-lg font-semibold text-plum">
+        <span>🍸</span> Bartender's Box
+      </div>
+      <p>© 2026 Bartender's Box. Please sip responsibly. 21+.</p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-ember transition">Instagram</a>
+        <a href="#" class="hover:text-ember transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
